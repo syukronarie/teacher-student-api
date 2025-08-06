@@ -1,0 +1,51 @@
+{
+  "name": "teacher-student-api",
+  "version": "1.0.0",
+  "description": "a system where they can perform administrative functions for their students",
+  "main": "src/server.js",
+  "scripts": {
+    "format": "prettier --write .",
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix .",
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js",
+    "test": "jest",
+    "test:c": "jest --coverage"
+  },
+  "keywords": [
+    "Nodejs",
+    "express",
+    "swagger",
+    "winston",
+    "zod",
+    "jest"
+  ],
+  "author": "M Arie Syukron<syukronarie@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "@asteasolutions/zod-to-openapi": "^8.1.0",
+    "cls-rtracer": "^2.6.3",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.1",
+    "express": "^5.1.0",
+    "express-rate-limit": "^8.0.1",
+    "helmet": "^8.1.0",
+    "morgan": "^1.10.1",
+    "mysql2": "^3.14.3",
+    "nodemon": "^3.1.10",
+    "on-finished": "^2.4.1",
+    "swagger": "^0.0.1",
+    "swagger-ui-express": "^5.0.1",
+    "uuid": "^11.1.0",
+    "winston": "^3.17.0",
+    "winston-daily-rotate-file": "^5.0.0",
+    "zod": "^4.0.14"
+  },
+  "devDependencies": {
+    "eslint": "^9.32.0",
+    "globals": "^16.3.0",
+    "jest": "^30.0.5",
+    "prettier": "^3.6.2",
+    "supertest": "^7.1.4"
+  }
+}
