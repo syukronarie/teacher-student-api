@@ -1,96 +1,138 @@
-# Teacher Student API
+# 🧑‍🏫 Teacher Student API
 
-## Overview
+## 🧩 Overview
 
-API to manage teachers and students registration, suspension, and notifications.
-Built using NodeJS with Express and MySQL, the API follows best practices including modular architecture, input validation, logging, and unit testing.
-
----
-
-## Table of Contents
-
-- [Background](#background)
-- [Features](#features)
-- [User Stories](#user-stories)
-- [Technology Stack](#technology-stack)
-- [Getting Started](#getting-started)
-- [Running Locally](#running-locally)
-- [API Endpoints](#api-endpoints)
-- [Testing](#testing)
-- [Deployment](#deployment)
-- [Project Structure](#project-structure)
-- [Error Handling](#error-handling)
-- [Contributing](#contributing)
-- [Contact](#contact)
+A RESTful API to manage teacher-student relationships — including registration, suspension, and notifications.  
+Built with **Node.js**, **Express**, and **MySQL**, this project adheres to best practices: modular architecture, input validation, logging, and unit testing.
 
 ---
 
-## Background
+## 📚 Table of Contents
 
-Teachers need a system to perform administrative functions for their students. Teachers and students are identified by their email addresses. This API supports those core functionalities as outlined in the user stories below.
-
----
-
-## Features
-
-- Input validation via Zod
-- Auto-generated Swagger docs
-- Rate limiting & security headers
-- Structured logging with correlation IDs
-- Clean layered architecture
-
-## User Stories
-
-1.  **Register Students to Teacher**  
-    Teachers can register one or more students. Students can be registered to multiple teachers.
-2.  **Retrieve Common Students**  
-    Get students common to one or more teachers.
-3.  **Suspend Student**  
-    Suspend a specific student to prevent them from receiving notifications.
-4.  **Retrieve Students for Notifications**  
-    Retrieve students eligible to receive notifications based on registration and @mentions, excluding suspended students.
-
----
-
-## Technology Stack
-
-- **Backend:** Node.js with Express
-- **Database:** MySQL, accessed via mysql2 (Promise-based API)
-- **Validation:** Zod + zod-to-openapi (for Swagger docs)
-- **Logging:** Winston with correlation IDs
-- **Testing:** Jest (unit tests)
-- **Other:** Rate limiting, centralized error handling, modular layers
+- [🧑‍🏫 Teacher Student API](#-teacher-student-api)
+  - [🧩 Overview](#-overview)
+  - [📚 Table of Contents](#-table-of-contents)
+  - [📸 API Documentation Screenshots](#-api-documentation-screenshots)
+  - [📊 Logs and Test Coverage](#-logs-and-test-coverage)
+    - [🧾 Winston Logs Output](#-winston-logs-output)
+    - [✅ Test Coverage Report](#-test-coverage-report)
+  - [📖 Background](#-background)
+  - [🌟 Features](#-features)
+  - [🧑‍💼 User Stories](#-user-stories)
+  - [🛠️ Technology Stack](#️-technology-stack)
+  - [🚀 Getting Started](#-getting-started)
+    - [📦 Prerequisites](#-prerequisites)
+  - [🖥️ Running Locally](#️-running-locally)
+  - [🔗 API Endpoints](#-api-endpoints)
+  - [🧪 Testing](#-testing)
+  - [📦 Deployment](#-deployment)
+  - [🧱 Project Structure](#-project-structure)
+  - [❗ Error Handling](#-error-handling)
+  - [🤝 Contributing](#-contributing)
+  - [📬 Contact](#-contact)
+  - [🙏 Thank You](#-thank-you)
 
 ---
 
-## Getting Started
+## 📸 API Documentation Screenshots
 
-### Prerequisites
+<details>
+  <summary>Click to expand API screenshots</summary>
 
-- Node.js (v18+ recommended)
-- MySQL server running locally or remotely
-- npm or yarn package manager
+![API Docs 1](docs/api-docs-1.png)  
+![API Docs 2](docs/api-docs-2.png)  
+![API Docs 3](docs/api-docs-3.png)  
+![API Docs 4](docs/api-docs-4.png)  
+![API Docs 5](docs/api-docs-5.png)
+
+</details>
 
 ---
 
-## Running Locally
+## 📊 Logs and Test Coverage
+
+### 🧾 Winston Logs Output
+
+![Logs](docs/logs.png)
+
+### ✅ Test Coverage Report
+
+![Test Coverage](docs/test-coverage.png)
+
+---
+
+## 📖 Background
+
+Teachers need a system to perform administrative functions for their students. Teachers and students are identified by email addresses. This API supports core functionalities outlined in the user stories below.
+
+---
+
+## 🌟 Features
+
+- Input validation using **Zod**
+- Auto-generated **Swagger** documentation
+- **Rate limiting** & security headers
+- Structured **Winston** logging with correlation IDs
+- Clean, layered, and modular architecture
+
+---
+
+## 🧑‍💼 User Stories
+
+1. **Register Students to Teacher**
+   - Teachers can register one or more students.
+   - Students can be registered to multiple teachers.
+
+2. **Retrieve Common Students**
+   - Fetch students common to one or more teachers.
+
+3. **Suspend Student**
+   - Suspend a student from receiving notifications.
+
+4. **Retrieve Students for Notifications**
+   - Get eligible students based on registration and `@mentions`, excluding suspended ones.
+
+---
+
+## 🛠️ Technology Stack
+
+- **Backend:** Node.js + Express
+- **Database:** MySQL (via `mysql2` Promise API)
+- **Validation:** Zod + zod-to-openapi (Swagger)
+- **Logging:** Winston + correlation IDs
+- **Testing:** Jest
+- **Other:** Rate limiting, error middleware, modular layers
+
+---
+
+## 🚀 Getting Started
+
+### 📦 Prerequisites
+
+- Node.js (v18+)
+- MySQL Server (local/remote)
+- npm or yarn
+
+---
+
+## 🖥️ Running Locally
 
 1. **Clone the repository**
 
 ```bash
-git clone https://github.com/syukronarie/teacher-student-api.git cd teacher-student-api
+git clone https://github.com/syukronarie/teacher-student-api.git
+cd teacher-student-api
 ```
 
 2. **Install dependencies**
 
 ```bash
-cd teacher-student-api
 npm install
 ```
 
 3. **Set up environment variables**
 
-Create a `.env` file in the root directory with the following variables:
+Create a `.env` file in the root directory with:
 
 ```env
 DB_HOST=localhost
@@ -104,8 +146,7 @@ RATE_LIMIT_MAX=100
 
 4. **Initialize the database**
 
-Setup MySQL database and run the schema SQL script.
-Run the SQL scripts or use the migration tool to create the required tables.
+Run the SQL schema or use a migration tool to create required tables.
 
 5. **Start the server**
 
@@ -113,34 +154,30 @@ Run the SQL scripts or use the migration tool to create the required tables.
 npm start
 ```
 
-The server will be running at [http://localhost:3000](http://localhost:3000)
-
-🧭 **API Docs:** Once running, navigate to [http://localhost:3000/api-docs](http://localhost:3000/api-docs) to view Swagger documentation.
+API docs: [http://localhost:3000/api-docs](http://localhost:3000/api-docs)
 
 ---
 
-## API Endpoints
+## 🔗 API Endpoints
 
-| Endpoint                        | Method | Description                                                 | Request Body/Params                               | Response Code  | Notes                                       |
-| ------------------------------- | ------ | ----------------------------------------------------------- | ------------------------------------------------- |----------------| ------------------------------------------- |
-| `/api/register`                 | POST   | Register students to a teacher                              | JSON: `{ teacher: string, students: string[] }`   | 204 No Content | Registers multiple students to one teacher  |
-| `/api/commonstudents`           | GET    | Retrieve common students registered to specified teacher(s) | Query Param: `teacher` (multiple allowed)         | 200 OK         | Returns list of common students             |
-| `/api/suspend`                  | POST   | Suspend a specified student                                 | JSON: `{ student: string }`                       | 204 No Content | Suspends the given student                  |
-| `/api/retrievefornotifications` | POST   | Retrieve students eligible to receive a notification        | JSON: `{ teacher: string, notification: string }` | 200 OK         | Includes registered and @mentioned students |
+| Endpoint                        | Method | Description                             | Input                                       | Response         |
+| ------------------------------- | ------ | --------------------------------------- | ------------------------------------------- | ---------------- |
+| `/api/register`                 | POST   | Register students to a teacher          | `{ teacher: string, students: string[] }`   | `204 No Content` |
+| `/api/commonstudents`           | GET    | Retrieve common students among teachers | Query: `teacher=email1&teacher=email2...`   | `200 OK`         |
+| `/api/suspend`                  | POST   | Suspend a specific student              | `{ student: string }`                       | `204 No Content` |
+| `/api/retrievefornotifications` | POST   | Get students eligible for notifications | `{ teacher: string, notification: string }` | `200 OK`         |
 
 ---
 
-## Testing
+## 🧪 Testing
 
-Unit tests are implemented with Jest.
-
-Run tests with:
+Use **Jest** to run unit tests.
 
 ```bash
 npm test
 ```
 
-Test coverage reports can be generated with:
+To generate test coverage:
 
 ```bash
 npm run test:coverage
@@ -148,77 +185,62 @@ npm run test:coverage
 
 ---
 
-## Deployment
+## 📦 Deployment
 
-**API Base URL:** _To be determined or configured upon deployment._
+API Base URL can be configured via environment variables or deployment platform settings.
 
 ---
 
-## Project Structure
+## 🧱 Project Structure
 
 ```bash
 /src
-  /config
-    db.js           # Database connection
-    logger.js       # Winston logger setup
-  /dtos
-    register.dto.js # Zod validation schemas
-    suspend.dto.js
-    notification.dto.js
-  /middlewares
-    errorHandler.js
-    rateLimiter.js
-    correlationId.js
-  /repositories
-    teacher.repository.js
-    student.repository.js
-    registration.repository.js
-  /services
-    teacher.service.js
-  /controllers
-    teacher.controller.js
-  /routes
-    teacher.routes.js
-  swagger.js        # Swagger/OpenAPI documentation setup
-  app.js            # Express app configuration
-  server.js         # Server bootstrap
-/tests
-  teacher.service.test.js  # Unit tests
-.env                 # Environment variables
-README.md            # This file
+  /config             # DB and logger configs
+  /dtos               # Zod validation schemas
+  /middlewares        # Error, rate limiters, IDs
+  /repositories       # DB access logic
+  /services           # Business logic
+  /controllers        # Request handlers
+  /routes             # Route definitions
+  swagger.js          # Swagger/OpenAPI config
+  app.js              # Express app setup
+  server.js           # Server entry point
+/tests                # Jest unit tests
+.env                  # Environment config
+README.md             # This file
 ```
 
 ---
 
-## Error Handling
+## ❗ Error Handling
 
-All error responses follow the format:
+All errors are returned in the following format:
 
 ```json
 { "message": "Meaningful error message" }
 ```
 
-Appropriate HTTP status codes are used for different error scenarios, such as:
+With appropriate HTTP status codes:
 
-- `400 Bad Request` for validation errors
-- `404 Not Found` for resources not found
-- `500 Internal Server Error` for unexpected failures
-
----
-
-## Contributing
-
-Feel free to fork this repository, submit issues, or open pull requests for improvements.
+- `400` – Validation errors
+- `404` – Resource not found
+- `500` – Internal server error
 
 ---
 
-## Contact
+## 🤝 Contributing
 
-For questions or clarifications, please contact:  
-**Email:** syukronarie@gmail.com
+Feel free to fork, raise issues, or submit pull requests to improve this project.
+
+---
+
+## 📬 Contact
+
+**Email:** [syukronarie@gmail.com](mailto:syukronarie@gmail.com)  
+📭 Open for feedback and collaboration!
 
 ---
 
-Thank you for reviewing this assessment. I look forward to your feedback!
+## 🙏 Thank You
 
----
+Thank you for reviewing this assessment! Looking forward to your feedback.
