@@ -180,7 +180,7 @@ npm test
 To generate test coverage:
 
 ```bash
-npm run test:coverage
+npm run test:c
 ```
 
 ---
