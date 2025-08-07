@@ -9,8 +9,8 @@
     "lint:fix": "eslint --fix .",
     "start": "node src/server.js",
     "dev": "nodemon src/server.js",
-    "test": "jest",
-    "test:c": "jest --coverage"
+    "test": "NODE_OPTIONS='--unhandled-rejections=none' jest",
+    "test:c": "NODE_OPTIONS='--unhandled-rejections=none' jest --coverage"
   },
   "keywords": [
     "Nodejs",
